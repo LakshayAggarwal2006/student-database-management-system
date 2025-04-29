@@ -1,73 +1,126 @@
-# Welcome to your Lovable project
 
-## Project info
+# Student Database Management System (NexusEdu)
 
-**URL**: https://lovable.dev/projects/4a500f8b-c8d4-4b2c-97b1-6254270f0a49
+A comprehensive web application for managing student data, courses, grades, attendance, and academic records.
 
-## How can I edit this code?
+## Project Overview
 
-There are several ways of editing your application.
+NexusEdu is a Student Database Management System designed for educational institutions to efficiently manage student information. The application provides an intuitive interface for administrators, faculty, and staff to handle various aspects of student data management.
 
-**Use Lovable**
+## Features
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4a500f8b-c8d4-4b2c-97b1-6254270f0a49) and start prompting.
+- **Student Management**: Add, edit, view, and delete student profiles with comprehensive information
+- **Course Management**: Create and manage courses, assign instructors, and track enrollment
+- **Grade Management**: Record and track student grades across courses and semesters
+- **Attendance Tracking**: Monitor student attendance records
+- **Reporting**: Generate various academic reports and analytics
+- **User-friendly Interface**: Intuitive dashboard with data visualization
 
-Changes made via Lovable will be committed automatically to this repo.
+## Database Schema Design
 
-**Use your preferred IDE**
+### Entity-Relationship Diagram
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The database is designed with the following key entities and relationships:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+#### Students
+- student_id (PK)
+- first_name
+- last_name
+- email
+- date_of_birth
+- gender
+- address
+- phone
+- enrollment_date
+- program_id (FK to Programs)
+- status
 
-Follow these steps:
+#### Programs
+- program_id (PK)
+- program_name
+- department
+- duration
+- description
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### Courses
+- course_id (PK)
+- course_code
+- title
+- description
+- credits
+- program_id (FK to Programs)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+#### Instructors
+- instructor_id (PK)
+- first_name
+- last_name
+- email
+- phone
+- department
+- hire_date
+- specialization
 
-# Step 3: Install the necessary dependencies.
-npm i
+#### Enrollment
+- enrollment_id (PK)
+- student_id (FK to Students)
+- course_id (FK to Courses)
+- semester_id (FK to Semesters)
+- enrollment_date
+- status
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+#### Grades
+- grade_id (PK)
+- enrollment_id (FK to Enrollment)
+- assignment_type
+- grade_value
+- comments
+- date_recorded
+
+#### Attendance
+- attendance_id (PK)
+- enrollment_id (FK to Enrollment)
+- date
+- status (present, absent, late)
+- comments
+
+#### Semesters
+- semester_id (PK)
+- name
+- start_date
+- end_date
+- academic_year
+
+## Technologies Used
+
+- **Frontend**: React, Tailwind CSS, shadcn/ui components
+- **Backend**: (To be implemented in Step 3 & 4)
+- **Database**: (To be implemented in Step 3 & 4)
+
+## Project Status
+
+This project follows the 4-step implementation process:
+
+1. ✅ Database schema design and ER Diagram
+2. ✅ User interface implementation
+3. ⬜ Database creation
+4. ⬜ Connection of UI with database
+
+## Installation and Setup
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Navigate to project directory
+cd student-database-management-system
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## License
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4a500f8b-c8d4-4b2c-97b1-6254270f0a49) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This project is for educational purposes.
