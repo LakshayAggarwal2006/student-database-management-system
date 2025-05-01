@@ -102,8 +102,8 @@ This project follows the 4-step implementation process:
 
 1. ✅ Database schema design and ER Diagram
 2. ✅ User interface implementation
-3. ⬜ Database creation
-4. ⬜ Connection of UI with database
+3. ✅ Database creation
+4. ✅ Connection of UI with database
 
 ## Installation and Setup
 
